@@ -1,0 +1,15 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.NavBar {
+    background-color: rgba(245, 245, 245, 0.516);
+    width: 100%;
+    height: 50px;
+    color: rgb(38, 74, 154);
+    font-family: 'Courier New';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
