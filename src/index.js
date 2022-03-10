@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import VehicleController from './Screen/Vehicle/VehicleController';
+import ManufacturesController from './Screen/Manufacturers/ManufacturesController';
+import axios from 'axios'
+
+axios.defaults.baseURL = 'https://parallelum.com.br/fipe/api/v1/carros/';
 
 ReactDOM.render(
   <React.StrictMode>
  <div>
-   <VehicleController />
+   <ManufacturesController />
  </div>
   </React.StrictMode>,
   document.getElementById('root')
