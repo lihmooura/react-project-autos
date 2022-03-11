@@ -1,16 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ManufacturesController from './Screen/Manufacturers/ManufacturesController';
+import ManufactureController from './Screen/Manufacturers/ManufacturesController';
 import axios from 'axios';
 import NavBar from './Components/NavBar'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-axios.defaults.baseURL = 'https://parallelum.com.br/fipe/api/v1/carros/';
+//ANCHOR : Setting axios base URL
+axios.defaults.baseURL = 'https://parallelum.com.br/fipe/api/v1/';
 
 ReactDOM.render(
   <React.StrictMode>
     <NavBar />
  <div>
-   <ManufacturesController />
+   <ManufactureController />
  </div>
   </React.StrictMode>,
   document.getElementById('root')
