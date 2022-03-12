@@ -1,53 +1,64 @@
-import {React, useEffect, useState} from 'react';
-import ManufacturesView from '../../Screen/Manufacturers/ManufacturesView';
+import React, {  Component  } from "react";
+import ManufacturesView from './ManufacturesView';
 import modelAPI from '../../ModelAPI'
 
-function App() {
 
-  //ANCHOR : Vehicles fetched states
-    const [Trucks, setTrucks] = useState([]);
-    const [cars, setCars] = useState([]);
-    const [motos, setMotos] = useState([]);
+class App extends Component {
+    constructor() {
+        super()
+        this.state = {
+            trucks: [],
+            cars: [],
+            motos: [],
+        }
+    }
 
-
-  //ANCHOR  Fetching vehicles by model
-    function fetchTrucks()  { 
+    fetchTrucks = () => {
         modelAPI('caminhoes').then((res)=> {
             if (res != null) { 
-            setTrucks(res.data);
+            this.setState({
+                trucks: res.data});
             }
         })
     }
-    function fetchCars()  { 
-      modelAPI('carros').then((res)=> {
-          if (res != null) { 
-            setCars(res.data);
-          }
-      })
+    fetchCars = () => { 
+        modelAPI('carros').then((res)=> {
+            if (res != null) { 
+              this.setState({
+                  cars: res.data
+              });
+            }
+        })
+      }
+    fetchMotos = () =>   { 
+        modelAPI('motos').then((res)=> {
+            if (res != null) { 
+                this.setState({
+                    motos: res.data
+              });
+            }
+        })
+      } 
+    componentDidMount() {
+        this.fetchTrucks()
+        this.fetchMotos()
+        this.fetchCars()
     }
-    function fetchMotos()  { 
-      modelAPI('motos').then((res)=> {
-          if (res != null) { 
-            setMotos(res.data);
-          }
-      })
-    }
-
-useEffect(() => {
-    fetchTrucks()
-    fetchCars()
-    fetchMotos()
-  }, []);
- 
-    return (
-            <ManufacturesView
-                Trucks={Trucks}
-                motos={motos}
-                cars={cars}
+    render() {
+        // If there are no data
+        if (this.state.trucks.length === 0 && this.state.motos.length === 0 && this.state.cars.length === 0 ) {
+            return <div>loading </div>
+        } else {
+            return <div>
+                <ManufacturesView
+                Trucks={this.state.trucks}
+                motos={this.state.cars}
+                cars={this.state.motos}
             />
-    )
+            </div>
+        }
 
-
+    }
 }
 
 export default App;
