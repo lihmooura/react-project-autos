@@ -48,7 +48,9 @@ class App extends Component {
     render() {
         // If there are no data
         if (this.state.trucks.length === 0 && this.state.motos.length === 0 && this.state.cars.length === 0 ) {
-            return <div>loading </div>
+            return <div className="loader-card">
+                <img src={require('../../Assets/images/loadercar.gif')} />
+                 </div>
         } else {
             return <div id="accordion">
                 <ManufacturesView

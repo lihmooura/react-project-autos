@@ -1,3 +1,10 @@
 #accordion { 
     width: 60%;
 }
+
+
+@media only screen and (max-width: 838px) {
+    #accordion {
+      width: 95%;
+    }
+  }

@@ -2,18 +2,32 @@ import {React, useState} from 'react';
 import Pagination from '../Pagination';
 import './accordion.css'
 
+import SearchBox from '../SearchField'
+
 const ManufacturesView = ({ accordionVehicle }) => {
+  
 
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(10);
+  const [searchfield, setSearch] = useState("");
 
-    // Get current posts
+
+// ANCHOR : SEARCHFIELD 
+  const filteredItems = accordionVehicle.vehicle.filter(elem => {
+    return elem.nome.toLowerCase().includes(searchfield.toLowerCase());
+})
+  function onSearchChange(event){
+    setSearch(event.target.value)
+  }
+
+// ANCHOR: PAGINATION 
     const indexOfLastPost = currentPage * itemsPerPage;
     const indexOfFirstPost = indexOfLastPost - itemsPerPage;
-    const currentPosts = accordionVehicle.vehicle.slice(indexOfFirstPost, indexOfLastPost);
-  
-    // Change page
+    const currentPosts = filteredItems.slice(indexOfFirstPost, indexOfLastPost);
+
     const paginate = pageNumber => setCurrentPage(pageNumber);
+
+
 
   return (
     <div className="card">
@@ -27,18 +41,22 @@ const ManufacturesView = ({ accordionVehicle }) => {
 
     <div id={`${accordionVehicle.id}`} className="collapse" aria-labelledby={`${accordionVehicle.id}`} data-parent="#accordion">
       <div className="card-body">
+   <SearchBox searchchange = {
+                    onSearchChange
+                }
+                />
         {
           currentPosts.map((v, i) => { 
-          return <div className='accordion-inner-btn regular-text black semibold' key={i}>{v.nome}</div>
+          return <div className='accordion-inner-btn' key={i}> 
+          <p className='regular-text '> {v.nome} </p>
+          </div>
           })
-          
         }
-   
       </div>
       <div className='paginate'>
       <Pagination 
       postsPerPage={itemsPerPage} 
-      totalPosts={accordionVehicle.vehicle.length}
+      totalPosts={filteredItems.length}
       paginate={paginate}
        />
        </div>

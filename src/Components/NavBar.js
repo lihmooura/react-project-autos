@@ -4,7 +4,7 @@ import '../index.css';
 const NavBar = () => {
     return (
         <div className='NavBar'>
-                <h2 >doutormultas</h2>
+                <p className='x-large-text semibold' >doutormultas</p>
         </div>
     )
 }
