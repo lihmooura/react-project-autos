@@ -1,5 +1,6 @@
 import {React, useState} from 'react';
-import Pagination from '../Components/Pagination';
+import Pagination from '../Pagination';
+import './accordion.css'
 
 const ManufacturesView = ({ accordionVehicle }) => {
 
@@ -18,7 +19,7 @@ const ManufacturesView = ({ accordionVehicle }) => {
     <div className="card">
     <div className="card-header" id="headingOne">
       <h5 className="mb-0">
-        <button className="btn btn-link" data-toggle="collapse" data-target={`#${accordionVehicle.id}`}  aria-expanded="true" aria-controls={`${accordionVehicle.id}`}>
+        <button className="accordion-button" data-toggle="collapse" data-target={`#${accordionVehicle.id}`}  aria-expanded="true" aria-controls={`${accordionVehicle.id}`}>
           {accordionVehicle.name}
         </button>
       </h5>
@@ -28,17 +29,19 @@ const ManufacturesView = ({ accordionVehicle }) => {
       <div className="card-body">
         {
           currentPosts.map((v, i) => { 
-          return <p key={i}>{v.nome}</p>
+          return <div className='accordion-inner-btn regular-text black semibold' key={i}>{v.nome}</div>
           })
           
         }
    
       </div>
+      <div className='paginate'>
       <Pagination 
       postsPerPage={itemsPerPage} 
       totalPosts={accordionVehicle.vehicle.length}
       paginate={paginate}
        />
+       </div>
     </div>
   </div>
   

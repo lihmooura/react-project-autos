@@ -1,5 +1,5 @@
 import {React} from 'react';
-import VehicleAcordion from '../../Components/VehicleAccordion';
+import VehicleAcordion from '../../Components/Accordion/VehicleAccordion';
 
 //ANCHOR : SETTING VEHICLES DATA INITIAL STATE
 const VehicleData = [

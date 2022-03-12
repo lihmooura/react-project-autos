@@ -1,0 +1,22 @@
+#collapse { 
+    background-color: red;
+}
+.paginate { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.accordion-inner-btn { 
+    background-color: rgb(227, 234, 245);
+    padding: 10px;
+    margin: 7px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.accordion-inner-btn:hover { 
+    background-color: white;
+    color: rgb(60, 108, 186);;
+}

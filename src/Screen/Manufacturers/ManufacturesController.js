@@ -1,6 +1,7 @@
 import React, {  Component  } from "react";
 import ManufacturesView from './ManufacturesView';
 import modelAPI from '../../ModelAPI'
+import './manufactures.css'
 
 
 class App extends Component {
@@ -12,7 +13,7 @@ class App extends Component {
             motos: [],
         }
     }
-
+// ANCHOR: Fetching all vehicles
     fetchTrucks = () => {
         modelAPI('caminhoes').then((res)=> {
             if (res != null) { 
@@ -49,7 +50,7 @@ class App extends Component {
         if (this.state.trucks.length === 0 && this.state.motos.length === 0 && this.state.cars.length === 0 ) {
             return <div>loading </div>
         } else {
-            return <div>
+            return <div id="accordion">
                 <ManufacturesView
                 Trucks={this.state.trucks}
                 motos={this.state.cars}
