@@ -19,3 +19,13 @@
 ### VIDEO 
 https://user-images.githubusercontent.com/88293904/158286140-95bd08a5-7f76-42c1-843c-ea45cc198fb3.mov
 
+## USAGE 
+
+### Install all dependencies by running 
+
+- npm install
+
+### start the website locally
+
+- npm run start
+
