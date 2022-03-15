@@ -1,11 +1,17 @@
-## to install all dependencies type the following commands on terminal
+## What was used on this project
+[x] React
+[x] Javascript
+[x] CSS 
+[x] GLOBAL CSS
+[x] Bootstrap
+[x] MVC ARCHITECTURE
+[x] AXIOS
+[x] CLASS AND FUNCTIONAL COMPONENTS
 
-### `npm install`
 
-## to run the app locally type the following commands on terminal
+### Features
 
-### `npm start`
+[x] Filter the list of items rendered
+[x] Items has been paginated 
+[x] Get the models vehicles
 
-The app will be running in the development mode.\
-
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
