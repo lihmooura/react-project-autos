@@ -1,6 +1,4 @@
-#collapse { 
-    background-color: red;
-}
+
 .paginate { 
     display: flex;
     align-items: center;
@@ -20,3 +18,5 @@
     background-color: white;
     color: rgb(60, 108, 186);;
 }
+
+

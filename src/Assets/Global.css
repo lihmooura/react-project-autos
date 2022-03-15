@@ -37,3 +37,8 @@
 .regular { 
     font-weight: 350 !important;
 }
+
+.link { 
+    text-decoration: none !important;
+    color: rgba(0, 0, 0, 0.708) !important;
+}

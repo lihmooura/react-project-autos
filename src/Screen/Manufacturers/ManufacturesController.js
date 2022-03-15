@@ -1,8 +1,7 @@
 import React, {  Component  } from "react";
 import ManufacturesView from './ManufacturesView';
-import modelAPI from '../../ModelAPI'
-import './manufactures.css'
-
+import modelAPI from '../../Model/ModelAPI';
+import './manufactures.css';
 
 class App extends Component {
     constructor() {
@@ -13,50 +12,64 @@ class App extends Component {
             motos: [],
         }
     }
+
 // ANCHOR: Fetching all vehicles
     fetchTrucks = () => {
-        modelAPI('caminhoes').then((res)=> {
+        modelAPI('caminhoes/marcas').then((res)=> {
             if (res != null) { 
-            this.setState({
-                trucks: res.data});
+                setTimeout(() => {
+                    this.setState({
+                        trucks: res.data});
+                  }, 1500);
             }
         })
     }
     fetchCars = () => { 
-        modelAPI('carros').then((res)=> {
+        modelAPI('carros/marcas').then((res)=> {
             if (res != null) { 
-              this.setState({
-                  cars: res.data
-              });
+              
+              setTimeout(() => {
+                this.setState({
+                    cars: res.data
+                })
+              }, 1500);
             }
         })
       }
     fetchMotos = () =>   { 
-        modelAPI('motos').then((res)=> {
+        modelAPI('motos/marcas').then((res)=> {
             if (res != null) { 
+              
+              setTimeout(() => {
                 this.setState({
                     motos: res.data
-              });
+              })
+              }, 1500);
             }
         })
       } 
+
     componentDidMount() {
         this.fetchTrucks()
         this.fetchMotos()
         this.fetchCars()
     }
+
     render() {
         // If there are no data
-        if (this.state.trucks.length === 0 && this.state.motos.length === 0 && this.state.cars.length === 0 ) {
+        if (this.state.trucks.length === 0 
+            && this.state.motos.length === 0 
+            && this.state.cars.length === 0 ) 
+            {
             return <div className="loader-card">
                 <img src={require('../../Assets/images/loadercar.gif')} />
                  </div>
         } else {
-            return <div id="accordion">
+            return <div id="accordion">               
                 <ManufacturesView
                 Trucks={this.state.trucks}
-                motos={this.state.cars}
-                cars={this.state.motos}
+                motos={this.state.motos}
+                cars={this.state.cars}
             />
             </div>
         }

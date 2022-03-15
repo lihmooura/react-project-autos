@@ -1,8 +1,8 @@
 import {React, useState} from 'react';
+import {Link} from 'react-router-dom'
 import Pagination from '../Pagination';
-import './accordion.css'
-
-import SearchBox from '../SearchField'
+import './accordion.css';
+import SearchBox from '../SearchField';
 
 const ManufacturesView = ({ accordionVehicle }) => {
   
@@ -28,31 +28,34 @@ const ManufacturesView = ({ accordionVehicle }) => {
     const paginate = pageNumber => setCurrentPage(pageNumber);
 
 
-
   return (
     <div className="card">
     <div className="card-header" id="headingOne">
       <h5 className="mb-0">
-        <button className="accordion-button" data-toggle="collapse" data-target={`#${accordionVehicle.id}`}  aria-expanded="true" aria-controls={`${accordionVehicle.id}`}>
+        
+        <button 
+          className="accordion-button" data-toggle="collapse" 
+          data-target={`#${accordionVehicle.id}`}  aria-expanded="true" 
+          aria-controls={`${accordionVehicle.id}`}>
           {accordionVehicle.name}
         </button>
+        
       </h5>
     </div>
 
-    <div id={`${accordionVehicle.id}`} className="collapse" aria-labelledby={`${accordionVehicle.id}`} data-parent="#accordion">
-      <div className="card-body">
-   <SearchBox searchchange = {
-                    onSearchChange
-                }
-                />
-        {
-          currentPosts.map((v, i) => { 
-          return <div className='accordion-inner-btn' key={i}> 
-          <p className='regular-text '> {v.nome} </p>
-          </div>
+    <div id={`${accordionVehicle.id}`} className="collapse" 
+    aria-labelledby={`${accordionVehicle.id}`} data-parent="#accordion">
+
+    <div className="card-body">
+        <SearchBox searchchange = { onSearchChange }/>
+        { currentPosts.map((v, i) => { 
+          return <Link key={i} to={`/vehicles/${v.codigo}/${accordionVehicle.name.toLowerCase()}`} className='regular-text link accordion-inner-btn'> <p> {v.nome} </p> </Link>
+  
+
           })
         }
-      </div>
+    </div>
+
       <div className='paginate'>
       <Pagination 
       postsPerPage={itemsPerPage} 

@@ -1,7 +1,8 @@
 import axios from 'axios'; 
 
 const getDataFromAPI = (endpoint) => {
-    return axios.get(`${endpoint}/marcas`).then((res) => { 
+    console.log("endpoint", endpoint)
+    return axios.get(`${endpoint}`).then((res) => { 
         return res
     }).catch((error) => { 
         console.log(error)
@@ -9,6 +10,7 @@ const getDataFromAPI = (endpoint) => {
        
     })
   };
+  
   
   export default getDataFromAPI;
   

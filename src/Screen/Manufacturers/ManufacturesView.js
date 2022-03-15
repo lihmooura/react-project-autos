@@ -21,14 +21,11 @@ const VehicleData = [
 ]
 
 const ManufacturesView = (vehicle ) => {
-
-
-
-
-    return VehicleData.map((vehicleData, i) => {
+  return VehicleData.map((vehicleData, i) => {
       VehicleData[0].vehicle = vehicle.cars
-  VehicleData[1].vehicle = vehicle.motos
-  VehicleData[2].vehicle = vehicle.Trucks
+      VehicleData[1].vehicle = vehicle.motos
+      VehicleData[2].vehicle = vehicle.Trucks
+      
   return (
     <VehicleAcordion 
         key={i} 

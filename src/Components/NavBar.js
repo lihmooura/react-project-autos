@@ -1,10 +1,11 @@
 import React from 'react';
 import '../index.css';
+import {Link} from 'react-router-dom'
 
 const NavBar = () => {
     return (
         <div className='NavBar'>
-                <p className='x-large-text semibold' >doutormultas</p>
+                <Link to="/" className='x-large-text semibold link' >doutormultas</Link>
         </div>
     )
 }
