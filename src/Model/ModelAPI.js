@@ -11,6 +11,6 @@ const getDataFromAPI = (endpoint) => {
     })
   };
   
-  
+
   export default getDataFromAPI;
   
